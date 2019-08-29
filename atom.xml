@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://github.com/llhhhh/llhhhh.github.io.git</id>
+    <title>Gridea</title>
+    <updated>2019-08-29T14:32:34.392Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://github.com/llhhhh/llhhhh.github.io.git"/>
+    <link rel="self" href="https://github.com/llhhhh/llhhhh.github.io.git/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://github.com/llhhhh/llhhhh.github.io.git/images/avatar.png</logo>
+    <icon>https://github.com/llhhhh/llhhhh.github.io.git/favicon.ico</icon>
+    <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[小程序开发记录]]></title>
+        <id>https://github.com/llhhhh/llhhhh.github.io.git/post/xiao-cheng-xu-kai-fa-ji-lu</id>
+        <link href="https://github.com/llhhhh/llhhhh.github.io.git/post/xiao-cheng-xu-kai-fa-ji-lu">
+        </link>
+        <updated>2019-06-21T14:29:02.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>小程序需要用到正则的时候 要这么写</li>
+</ul>
+<pre><code>var reg = getRegExp('-', 'gi'); //wxs的正则 
+timestamp = timestamp.replace(reg, '/'); 
+</code></pre>
+<ul>
+<li>小程序图片自适应</li>
+</ul>
+<pre><code>* 方法一：
+	.imgs{
+		width: 100%;
+	}
+	使用widthFix 就能自适应
+	&lt;image class=&quot;imgs&quot; style=&quot;width: 100%;&quot;  bindload=&quot;imageLoad&quot; src=&quot;{{item}}&quot; mode=&quot;widthFix&quot; /&gt;
+
+*方法二：
+设置隐藏 使用bindload
+
+imageLoad: function (e) {
+
+	var width = e.detail.width,//图片宽度
+		height = e.detail.height;
+	var ratio  = width / height;
+	var screenWidth = app.globalData.systemInfo.screenWidth;
+
+	height = (screenWidth - 30) / ratio; 
+	//30是左右边距
+
+	this.setData({
+		height,
+	});
+},
+//用一个image 做隐藏
+&lt;image  style=&quot;width: 100%;&quot; class=&quot;hidden&quot; bindload=&quot;imageLoad&quot; src=&quot;{{item}}&quot; mode=&quot;widthFix&quot; /&gt;
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[BOM,DOM的区别]]></title>
+        <id>https://github.com/llhhhh/llhhhh.github.io.git/post/bomdom-de-qu-bie</id>
+        <link href="https://github.com/llhhhh/llhhhh.github.io.git/post/bomdom-de-qu-bie">
+        </link>
+        <updated>2019-06-19T14:28:14.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>DOM 是为了操作文档出现的 API，document 是其的一个对象；BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Canvas]]></title>
+        <id>https://github.com/llhhhh/llhhhh.github.io.git/post/canvas</id>
+        <link href="https://github.com/llhhhh/llhhhh.github.io.git/post/canvas">
+        </link>
+        <updated>2019-06-19T14:27:28.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>https://github.com/willnewii/json2canvas/blob/master/example/web/index.html
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ CSS Tricks]]></title>
+        <id>https://github.com/llhhhh/llhhhh.github.io.git/post/css-tricks</id>
+        <link href="https://github.com/llhhhh/llhhhh.github.io.git/post/css-tricks">
+        </link>
+        <updated>2019-06-14T14:26:46.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>https://qishaoxuan.github.io/css_tricks/createTriangle/
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vue 配置文件]]></title>
+        <id>https://github.com/llhhhh/llhhhh.github.io.git/post/vue-pei-zhi-wen-jian</id>
+        <link href="https://github.com/llhhhh/llhhhh.github.io.git/post/vue-pei-zhi-wen-jian">
+        </link>
+        <updated>2019-06-14T14:23:57.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="vueconfigjs">vue.config.js</h3>
+<pre><code>通过配置 externals 实现打生产包时排除某些依赖，使用 cdn 资源代替。
+</code></pre>
+<pre><code class="language-javascript">externals: {
+	'vue': 'Vue',
+	'vue-router': 'VueRouter',
+	'vuex': 'Vuex',
+	// 'axios': 'axios',
+	// 'lodash': '_',
+	// 'qs': 'Qs',
+	// 'crypto-js': 'CryptoJS',
+	// 'babel-polyfill': 'babel-polyfill',
+	// 'es6-promise': 'es6-promise',
+	// 'vue-lazyload': 'VueLazyload',
+},
+</code></pre>
+<h3 id="postcssconfigjs">postcss.config.js</h3>
+<pre><code>配置px 转rem 和自动补全前缀
+</code></pre>
+<pre><code class="language-javascript">module.exports = {
+  &quot;plugins&quot;: {
+    &quot;autoprefixer&quot;: {},
+    &quot;postcss-import&quot;: {},
+    'autoprefixer': {
+      browsers: ['Android &gt;= 4.0', 'iOS &gt;= 7']
+    },
+    'postcss-pxtorem': {
+      rootValue: 19,
+      propList: ['*']
+    }
+  }
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Node+Express+MySql学习记录]]></title>
+        <id>https://github.com/llhhhh/llhhhh.github.io.git/post/nodeexpressmysql-xue-xi-ji-lu</id>
+        <link href="https://github.com/llhhhh/llhhhh.github.io.git/post/nodeexpressmysql-xue-xi-ji-lu">
+        </link>
+        <updated>2019-06-11T14:17:12.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="1引用依赖express-body-parser-mysql">1.引用依赖Express、body-parser、mysql</h3>
+<ul>
+<li>Express框架默认使用body-parser作为请求体解析中间件</li>
+<li>用于处理 JSON, Raw, Text 和 URL 编码的数据</li>
+</ul>
+<h3 id="2创建数据库">2.创建数据库</h3>
+<h3 id="3设置跨域访问">3.设置跨域访问</h3>
+<h3 id="4添加解析请求体">4.添加解析请求体</h3>
+<h3 id="5配置服务端口">5.配置服务端口</h3>
+<h3 id="6编写接口-运行">6.编写接口、运行</h3>
+<h3 id="贴代码">贴代码</h3>
+<ul>
+<li>1.引用模块</li>
+</ul>
+<pre><code class="language-javascript">var express = require('express');
+var bodyParser = require('body-parser');
+var sql = require('mysql');
+var app = express();
+</code></pre>
+<ul>
+<li>2.创建好数据库之后，连接数据库</li>
+</ul>
+<pre><code class="language-javascript">var connection = sql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'test',
+});
+connection.connect();
+</code></pre>
+<ul>
+<li>3.设置跨域访问</li>
+</ul>
+<pre><code class="language-javascript">app.all('*', function (req, res, next) {
+  res.header(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
+  res.header(&quot;Access-Control-Allow-Headers&quot;, &quot;X-Requested-With&quot;);
+  res.header(&quot;Access-Control-Allow-Methods&quot;, &quot;PUT,POST,GET,DELETE,OPTIONS&quot;);
+  res.header(&quot;X-Powered-By&quot;, ' 3.2.1');
+  res.header(&quot;Content-Type&quot;, &quot;application/json;charset=utf-8&quot;);
+  next();
+});
+</code></pre>
+<ul>
+<li>4.添加解析请求体</li>
+</ul>
+<pre><code class="language-javascript">app.use(bodyParser.urlencoded({ extended: false }));
+</code></pre>
+<ul>
+<li>5.配置服务端口</li>
+</ul>
+<pre><code class="language-javascript">var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Example app listening at http://localhost', host, port);
+})
+</code></pre>
+<ul>
+<li>6.编写接口、运行</li>
+</ul>
+<h3 id="获取用户列表">获取用户列表</h3>
+<pre><code class="language-javascript">app.get('/getList', function (req, res) {
+    const sql = 'select * from member ORDER BY id DESC';
+    connection.query(sql, function (err, result) {
+      if (err) {
+        console.log('err', err.message);
+        return;
+      }
+      res.status(200),
+      res.json({status: 200, data: {msg: '获取用户列表成功', data: result}})
+    })
+  });
+</code></pre>
+<h3 id="获取用户的说说列表">获取用户的说说列表</h3>
+<p><code>获取参数： query 是get，body 是post</code></p>
+<pre><code class="language-javascript"> app.get('/getMemberTalk', function (req, res) {
+    //查询用户列表
+    const { query } = req; 
+
+    if (!query.member_id) { 
+      res.status(200), res.json({ status: 404, data: { msg: '用户id值必传' } })
+      return
+    }
+
+    const sql = `SELECT * FROM member a LEFT JOIN talk_list b ON a.id = b.member_id WHERE b.member_id ='${query.member_id}'`
+    
+    connection.query(sql, function (err, result) {
+      if (err) {
+        console.log('err', err.message);
+        return;
+      }
+      res.status(200),
+      res.json({ status: 200, data: { msg: '获取用户发布列表成功', data: result}})
+    })
+    
+  });
+</code></pre>
+<h3 id="运行">运行</h3>
+<pre><code class="language-javascript">node app.js
+</code></pre>
+<ul>
+<li>如果运行报错请查看 phpstudy 是否开启</li>
+</ul>
+<h3 id="2张表关联">2张表关联</h3>
+<pre><code class="language-javascript">const sql = `SELECT * FROM tableA a LEFT JOIN tableB b ON a.id = b.member_id WHERE b.member_id ='${query.member_id}'`
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[七牛存储区域]]></title>
+        <id>https://github.com/llhhhh/llhhhh.github.io.git/post/qi-niu-cun-chu-qu-yu</id>
+        <link href="https://github.com/llhhhh/llhhhh.github.io.git/post/qi-niu-cun-chu-qu-yu">
+        </link>
+        <updated>2019-06-04T14:15:46.000Z</updated>
+        <content type="html"><![CDATA[<p>原文： https://developer.qiniu.com/kodo/manual/1671/region-endpoint</p>
+<pre><code class="language-javascript">华东	z0	服务器端上传：http(s)://up.qiniup.com 客户端上传： http(s)://upload.qiniup.com
+华北	z1	服务器端上传：http(s)://up-z1.qiniup.com 客户端上传：http(s)://upload-z1.qiniup.com
+华南	z2	服务器端上传：http(s)://up-z2.qiniup.com 户端上传：http(s)://upload-z2.qiniup.com
+北美	na0	服务器端上传：http(s)://up-na0.qiniup.com 户端上传：http(s)://upload-na0.qiniup.com
+东南亚	as0	服务器端上传：http(s)://up-as0.qiniup.com 户端上传：http(s)://upload-as0.qiniup.com
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vue 打包运行报错]]></title>
+        <id>https://github.com/llhhhh/llhhhh.github.io.git/post/vue-da-bao-yun-xing-bao-cuo</id>
+        <link href="https://github.com/llhhhh/llhhhh.github.io.git/post/vue-da-bao-yun-xing-bao-cuo">
+        </link>
+        <updated>2019-06-04T14:13:22.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="ie运行报愈发错误">IE运行报愈发错误</h3>
+<p>vue 打包成App 在低于5.x 一下的安卓手机会运行报错。在IE上运行会报语法错误，是由于 引用了package.json 里面的swiper的组件导致，只需要将引用代码注释改换成 index.html 引入js 方式即可解决。</p>
+<pre><code class="language-javascript">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/js/swiper.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="webpack打包报-cannot-read-property-call-of-undefined">Webpack打包报 &quot;Cannot read property 'call' of undefined&quot;</h3>
+<p>原文：https://segmentfault.com/q/1010000014545856<br>
+解决方法：</p>
+<ol>
+<li>打包完后，进入dist 文件夹修改index.html</li>
+</ol>
+<pre><code class="language-javascript">修改前：
+&lt;script type=text/javascript src=/home_stay/static/js/manifest.6e0c0240c920e78b4f21.js&gt;&lt;/script&gt;
+&lt;script type=text/javascript src=/home_stay/static/js/vendor.5f1b9e59bd38bb0d30c7.js&gt;&lt;/script&gt;
+&lt;script type=text/javascript src=/home_stay/static/js/app.fa4b495fc2bb6f1e6120.js&gt;&lt;/script&gt;&lt;/script&gt;
+</code></pre>
+<pre><code class="language-javascript">修改后：
+&lt;script&gt;
+document.write(`&lt;script type=text/javascript src=/home_stay/static/js/manifest.6e0c0240c920e78b4f21.js?`+Math.random()+`&gt;&lt;\/script&gt;;&lt;script type=text/javascript src=/home_stay/static/js/vendor.5f1b9e59bd38bb0d30c7.js?`+Math.random()+`&gt;&lt;\/script&gt;;&lt;script type=text/javascript src=/home_stay/static/js/app.fa4b495fc2bb6f1e6120.js?`+Math.random()+`&gt;&lt;\/script&gt;;`)
+&lt;/script&gt;
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CSS ios 滑动下滑不顺畅]]></title>
+        <id>https://github.com/llhhhh/llhhhh.github.io.git/post/css-ios-hua-dong-xia-hua-bu-shun-chang</id>
+        <link href="https://github.com/llhhhh/llhhhh.github.io.git/post/css-ios-hua-dong-xia-hua-bu-shun-chang">
+        </link>
+        <updated>2019-06-04T14:12:23.000Z</updated>
+        <content type="html"><![CDATA[<pre><code class="language-javascript">-webkit-overflow-scrolling: touch;
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ReactNative 样式表]]></title>
+        <id>https://github.com/llhhhh/llhhhh.github.io.git/post/reactnative-yang-shi-biao</id>
+        <link href="https://github.com/llhhhh/llhhhh.github.io.git/post/reactnative-yang-shi-biao">
+        </link>
+        <updated>2019-06-04T14:11:03.000Z</updated>
+        <content type="html"><![CDATA[<p>https://www.jianshu.com/p/c59c6890edff</p>
+]]></content>
+    </entry>
+</feed>

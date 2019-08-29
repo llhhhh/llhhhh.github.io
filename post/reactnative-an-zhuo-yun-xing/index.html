@@ -1,0 +1,229 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ReactNative 安卓运行 | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://github.com/llhhhh/llhhhh.github.io.git/favicon.ico?v=1567089061677">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://github.com/llhhhh/llhhhh.github.io.git/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://github.com/llhhhh/llhhhh.github.io.git">
+  <img class="avatar" src="https://github.com/llhhhh/llhhhh.github.io.git/images/avatar.png?v=1567089061677" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              ReactNative 安卓运行
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-06-04
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://github.com/llhhhh/llhhhh.github.io.git/tag/ssSJquQNE" class="post-tag">
+                  # ReactNative
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="vscode运行reactnative">vscode运行ReactNative:</h3>
+<pre><code class="language-javascript">https://blog.csdn.net/young_emily/article/details/79005728 
+</code></pre>
+<h3 id="打包安卓apk">打包安卓apk:</h3>
+<pre><code class="language-javascript">gradlew assembleRelease
+</code></pre>
+<ul>
+<li>当打包安卓出现 &quot;Execution failed for task ':app:bundleReleaseJsAndAssets'. &quot;的错误是缓存问题，解决方法：</li>
+</ul>
+<pre><code class="language-javascript">gradlew --stop 再重新启动 
+</code></pre>
+<ul>
+<li>当修改了 android 文件夹清除缓存</li>
+</ul>
+<pre><code class="language-javascript">gradlew.bat clean
+</code></pre>
+<h3 id="安装高德地图打包不成功">安装高德地图打包不成功</h3>
+<p>原文： https://github.com/25juan/react-native-amap3d/commit/30b92dad1ec6d59b82bbfcb0b12051c36ef8cfb0</p>
+<p>解决方法：</p>
+<ol>
+<li>lib/android/src/main/java/cn/qiuxiang/react/amap3d/AMapUtils.kt</li>
+</ol>
+<pre><code class="language-javascript">//return ArrayList((0..(this.size() - 1)).map { this.getMap(it).toLatLng() });
+
+return ArrayList((0..(this.size() - 1)).map { this.getMap(it)!!.toLatLng() });
+</code></pre>
+<ol start="2">
+<li>lib/android/src/main/java/cn/qiuxiang/react/amap3d/maps/AMapMultiPoint.kt</li>
+</ol>
+<pre><code class="language-javascript">items = ArrayList((0 until points.size())
+.map {
+val data = points.getMap(it)
+
+//val item = MultiPointItem(data.toLatLng())
+//if (data.hasKey(&quot;title&quot;)) {
+//item.title = data.getString(&quot;title&quot;)
+
+val item = MultiPointItem(data!!.toLatLng())
+if (data!!.hasKey(&quot;title&quot;)) {
+item.title = data!!.getString(&quot;title&quot;)
+}
+
+//if (data.hasKey(&quot;subtitle&quot;)) {
+//item.snippet = data.getString(&quot;subtitle&quot;)
+
+if (data!!.hasKey(&quot;subtitle&quot;)) {
+item.snippet = data!!.getString(&quot;subtitle&quot;)
+}
+item.customerId = id.toString() + &quot;_&quot; + it
+item
+</code></pre>
+<ol start="3">
+<li>lib/android/src/main/java/cn/qiuxiang/react/amap3d/maps/AMapView.kt</li>
+</ol>
+<pre><code class="language-javascript">if (target.hasKey(&quot;coordinate&quot;)) {
+//coordinate = target.getMap(&quot;coordinate&quot;).toLatLng()
+coordinate = target.getMap(&quot;coordinate&quot;)!!.toLatLng()
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#vscode%E8%BF%90%E8%A1%8Creactnative">vscode运行ReactNative:</a></li>
+<li><a href="#%E6%89%93%E5%8C%85%E5%AE%89%E5%8D%93apk">打包安卓apk:</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8C%85%E4%B8%8D%E6%88%90%E5%8A%9F">安装高德地图打包不成功</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://github.com/llhhhh/llhhhh.github.io.git/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

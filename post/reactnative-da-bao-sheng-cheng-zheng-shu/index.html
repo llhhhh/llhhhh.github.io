@@ -1,0 +1,222 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ReactNative 打包生成证书 | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://github.com/llhhhh/llhhhh.github.io.git/favicon.ico?v=1567089061677">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://github.com/llhhhh/llhhhh.github.io.git/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://github.com/llhhhh/llhhhh.github.io.git">
+  <img class="avatar" src="https://github.com/llhhhh/llhhhh.github.io.git/images/avatar.png?v=1567089061677" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              ReactNative 打包生成证书
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-06-04
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://github.com/llhhhh/llhhhh.github.io.git/tag/ssSJquQNE" class="post-tag">
+                  # ReactNative
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="生成证书">生成证书</h3>
+<pre><code class="language-javascript">keytool -genkey -alias android.keystore -keyalg RSA -validity 20000 -keystore android.keystore 
+</code></pre>
+<p>android 为证书名称</p>
+<h3 id="查看证书详情">查看证书详情</h3>
+<pre><code class="language-javascript">keytool -list -v -keystore android.keystore
+</code></pre>
+<h3 id="设置-gradle-变量">设置 gradle 变量</h3>
+<p>把android.keystore文件放到你工程中的android/app文件夹下。 编辑项目目录/android/gradle.properties，如果没有gradle.properties文件你就自己创建一个，添加如下的代码（注意把其中的****替换为相应密码）</p>
+<pre><code class="language-javascript">MYAPP_RELEASE_STORE_FILE=android.keystore
+MYAPP_RELEASE_KEY_ALIAS=android.keystore
+MYAPP_RELEASE_STORE_PASSWORD=*****
+MYAPP_RELEASE_KEY_PASSWORD=*****
+</code></pre>
+<h3 id="签名配置到-gradle">签名配置到 gradle</h3>
+<p>编辑你项目目录下的android/app/build.gradle，添加如下的签名配置：</p>
+<pre><code class="language-javascript">android {
+	...
+	defaultConfig { ... }
+	signingConfigs {
+		release {
+			if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+				storeFile file(MYAPP_RELEASE_STORE_FILE)
+				storePassword MYAPP_RELEASE_STORE_PASSWORD
+				keyAlias MYAPP_RELEASE_KEY_ALIAS
+				keyPassword MYAPP_RELEASE_KEY_PASSWORD
+			}
+		}
+	}
+	buildTypes {
+		release {
+			...
+			signingConfig signingConfigs.release
+		}
+	}
+}
+
+</code></pre>
+<h3 id="编译测试版的正式环境">编译测试版的正式环境</h3>
+<pre><code class="language-javascript">react-native run-android --variant=release
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6">生成证书</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E8%AF%81%E4%B9%A6%E8%AF%A6%E6%83%85">查看证书详情</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE-gradle-%E5%8F%98%E9%87%8F">设置 gradle 变量</a></li>
+<li><a href="#%E7%AD%BE%E5%90%8D%E9%85%8D%E7%BD%AE%E5%88%B0-gradle">签名配置到 gradle</a></li>
+<li><a href="#%E7%BC%96%E8%AF%91%E6%B5%8B%E8%AF%95%E7%89%88%E7%9A%84%E6%AD%A3%E5%BC%8F%E7%8E%AF%E5%A2%83">编译测试版的正式环境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://github.com/llhhhh/llhhhh.github.io.git/post/reactnative-an-zhuo-yun-xing">
+              <h3 class="post-title">
+                ReactNative 安卓运行
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://github.com/llhhhh/llhhhh.github.io.git/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

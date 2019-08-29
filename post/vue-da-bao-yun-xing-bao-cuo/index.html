@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vue 打包运行报错 | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://github.com/llhhhh/llhhhh.github.io.git/favicon.ico?v=1567089061677">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://github.com/llhhhh/llhhhh.github.io.git/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://github.com/llhhhh/llhhhh.github.io.git">
+  <img class="avatar" src="https://github.com/llhhhh/llhhhh.github.io.git/images/avatar.png?v=1567089061677" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Vue 打包运行报错
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-06-04
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://github.com/llhhhh/llhhhh.github.io.git/tag/JC-RC4H56" class="post-tag">
+                  # Vue
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="ie运行报愈发错误">IE运行报愈发错误</h3>
+<p>vue 打包成App 在低于5.x 一下的安卓手机会运行报错。在IE上运行会报语法错误，是由于 引用了package.json 里面的swiper的组件导致，只需要将引用代码注释改换成 index.html 引入js 方式即可解决。</p>
+<pre><code class="language-javascript">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/js/swiper.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="webpack打包报-cannot-read-property-call-of-undefined">Webpack打包报 &quot;Cannot read property 'call' of undefined&quot;</h3>
+<p>原文：https://segmentfault.com/q/1010000014545856<br>
+解决方法：</p>
+<ol>
+<li>打包完后，进入dist 文件夹修改index.html</li>
+</ol>
+<pre><code class="language-javascript">修改前：
+&lt;script type=text/javascript src=/home_stay/static/js/manifest.6e0c0240c920e78b4f21.js&gt;&lt;/script&gt;
+&lt;script type=text/javascript src=/home_stay/static/js/vendor.5f1b9e59bd38bb0d30c7.js&gt;&lt;/script&gt;
+&lt;script type=text/javascript src=/home_stay/static/js/app.fa4b495fc2bb6f1e6120.js&gt;&lt;/script&gt;&lt;/script&gt;
+</code></pre>
+<pre><code class="language-javascript">修改后：
+&lt;script&gt;
+document.write(`&lt;script type=text/javascript src=/home_stay/static/js/manifest.6e0c0240c920e78b4f21.js?`+Math.random()+`&gt;&lt;\/script&gt;;&lt;script type=text/javascript src=/home_stay/static/js/vendor.5f1b9e59bd38bb0d30c7.js?`+Math.random()+`&gt;&lt;\/script&gt;;&lt;script type=text/javascript src=/home_stay/static/js/app.fa4b495fc2bb6f1e6120.js?`+Math.random()+`&gt;&lt;\/script&gt;;`)
+&lt;/script&gt;
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#ie%E8%BF%90%E8%A1%8C%E6%8A%A5%E6%84%88%E5%8F%91%E9%94%99%E8%AF%AF">IE运行报愈发错误</a></li>
+<li><a href="#webpack%E6%89%93%E5%8C%85%E6%8A%A5-cannot-read-property-call-of-undefined">Webpack打包报 &quot;Cannot read property 'call' of undefined&quot;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://github.com/llhhhh/llhhhh.github.io.git/post/css-ios-hua-dong-xia-hua-bu-shun-chang">
+              <h3 class="post-title">
+                CSS ios 滑动下滑不顺畅
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://github.com/llhhhh/llhhhh.github.io.git/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
