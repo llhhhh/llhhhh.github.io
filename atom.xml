@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://github.com/llhhhh/llhhhh.github.io</id>
+    <id>https://llhhhh.github.io</id>
     <title>Gridea</title>
-    <updated>2019-08-29T14:48:28.163Z</updated>
+    <updated>2019-08-29T14:50:44.789Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://github.com/llhhhh/llhhhh.github.io"/>
-    <link rel="self" href="https://github.com/llhhhh/llhhhh.github.io/atom.xml"/>
+    <link rel="alternate" href="https://llhhhh.github.io"/>
+    <link rel="self" href="https://llhhhh.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://github.com/llhhhh/llhhhh.github.io/images/avatar.png</logo>
-    <icon>https://github.com/llhhhh/llhhhh.github.io/favicon.ico</icon>
+    <logo>https://llhhhh.github.io/images/avatar.png</logo>
+    <icon>https://llhhhh.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[小程序开发记录]]></title>
-        <id>https://github.com/llhhhh/llhhhh.github.io/post/xiao-cheng-xu-kai-fa-ji-lu</id>
-        <link href="https://github.com/llhhhh/llhhhh.github.io/post/xiao-cheng-xu-kai-fa-ji-lu">
+        <id>https://llhhhh.github.io/post/xiao-cheng-xu-kai-fa-ji-lu</id>
+        <link href="https://llhhhh.github.io/post/xiao-cheng-xu-kai-fa-ji-lu">
         </link>
         <updated>2019-06-21T14:29:02.000Z</updated>
         <content type="html"><![CDATA[<ul>
@@ -56,8 +56,8 @@ imageLoad: function (e) {
     </entry>
     <entry>
         <title type="html"><![CDATA[BOM,DOM的区别]]></title>
-        <id>https://github.com/llhhhh/llhhhh.github.io/post/bomdom-de-qu-bie</id>
-        <link href="https://github.com/llhhhh/llhhhh.github.io/post/bomdom-de-qu-bie">
+        <id>https://llhhhh.github.io/post/bomdom-de-qu-bie</id>
+        <link href="https://llhhhh.github.io/post/bomdom-de-qu-bie">
         </link>
         <updated>2019-06-19T14:28:14.000Z</updated>
         <content type="html"><![CDATA[<pre><code>DOM 是为了操作文档出现的 API，document 是其的一个对象；BOM 是为了操作浏览器出现的 API，window 是其的一个对象。
@@ -66,8 +66,8 @@ imageLoad: function (e) {
     </entry>
     <entry>
         <title type="html"><![CDATA[Canvas]]></title>
-        <id>https://github.com/llhhhh/llhhhh.github.io/post/canvas</id>
-        <link href="https://github.com/llhhhh/llhhhh.github.io/post/canvas">
+        <id>https://llhhhh.github.io/post/canvas</id>
+        <link href="https://llhhhh.github.io/post/canvas">
         </link>
         <updated>2019-06-19T14:27:28.000Z</updated>
         <content type="html"><![CDATA[<pre><code>https://github.com/willnewii/json2canvas/blob/master/example/web/index.html
@@ -76,8 +76,8 @@ imageLoad: function (e) {
     </entry>
     <entry>
         <title type="html"><![CDATA[ CSS Tricks]]></title>
-        <id>https://github.com/llhhhh/llhhhh.github.io/post/css-tricks</id>
-        <link href="https://github.com/llhhhh/llhhhh.github.io/post/css-tricks">
+        <id>https://llhhhh.github.io/post/css-tricks</id>
+        <link href="https://llhhhh.github.io/post/css-tricks">
         </link>
         <updated>2019-06-14T14:26:46.000Z</updated>
         <content type="html"><![CDATA[<pre><code>https://qishaoxuan.github.io/css_tricks/createTriangle/
@@ -86,8 +86,8 @@ imageLoad: function (e) {
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue 配置文件]]></title>
-        <id>https://github.com/llhhhh/llhhhh.github.io/post/vue-pei-zhi-wen-jian</id>
-        <link href="https://github.com/llhhhh/llhhhh.github.io/post/vue-pei-zhi-wen-jian">
+        <id>https://llhhhh.github.io/post/vue-pei-zhi-wen-jian</id>
+        <link href="https://llhhhh.github.io/post/vue-pei-zhi-wen-jian">
         </link>
         <updated>2019-06-14T14:23:57.000Z</updated>
         <content type="html"><![CDATA[<h3 id="vueconfigjs">vue.config.js</h3>
@@ -127,8 +127,8 @@ imageLoad: function (e) {
     </entry>
     <entry>
         <title type="html"><![CDATA[Node+Express+MySql学习记录]]></title>
-        <id>https://github.com/llhhhh/llhhhh.github.io/post/nodeexpressmysql-xue-xi-ji-lu</id>
-        <link href="https://github.com/llhhhh/llhhhh.github.io/post/nodeexpressmysql-xue-xi-ji-lu">
+        <id>https://llhhhh.github.io/post/nodeexpressmysql-xue-xi-ji-lu</id>
+        <link href="https://llhhhh.github.io/post/nodeexpressmysql-xue-xi-ji-lu">
         </link>
         <updated>2019-06-11T14:17:12.000Z</updated>
         <content type="html"><![CDATA[<h3 id="1引用依赖express-body-parser-mysql">1.引用依赖Express、body-parser、mysql</h3>
@@ -240,8 +240,8 @@ connection.connect();
     </entry>
     <entry>
         <title type="html"><![CDATA[七牛存储区域]]></title>
-        <id>https://github.com/llhhhh/llhhhh.github.io/post/qi-niu-cun-chu-qu-yu</id>
-        <link href="https://github.com/llhhhh/llhhhh.github.io/post/qi-niu-cun-chu-qu-yu">
+        <id>https://llhhhh.github.io/post/qi-niu-cun-chu-qu-yu</id>
+        <link href="https://llhhhh.github.io/post/qi-niu-cun-chu-qu-yu">
         </link>
         <updated>2019-06-04T14:15:46.000Z</updated>
         <content type="html"><![CDATA[<p>原文： https://developer.qiniu.com/kodo/manual/1671/region-endpoint</p>
@@ -255,8 +255,8 @@ connection.connect();
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue 打包运行报错]]></title>
-        <id>https://github.com/llhhhh/llhhhh.github.io/post/vue-da-bao-yun-xing-bao-cuo</id>
-        <link href="https://github.com/llhhhh/llhhhh.github.io/post/vue-da-bao-yun-xing-bao-cuo">
+        <id>https://llhhhh.github.io/post/vue-da-bao-yun-xing-bao-cuo</id>
+        <link href="https://llhhhh.github.io/post/vue-da-bao-yun-xing-bao-cuo">
         </link>
         <updated>2019-06-04T14:13:22.000Z</updated>
         <content type="html"><![CDATA[<h3 id="ie运行报愈发错误">IE运行报愈发错误</h3>
@@ -283,8 +283,8 @@ document.write(`&lt;script type=text/javascript src=/home_stay/static/js/manifes
     </entry>
     <entry>
         <title type="html"><![CDATA[CSS ios 滑动下滑不顺畅]]></title>
-        <id>https://github.com/llhhhh/llhhhh.github.io/post/css-ios-hua-dong-xia-hua-bu-shun-chang</id>
-        <link href="https://github.com/llhhhh/llhhhh.github.io/post/css-ios-hua-dong-xia-hua-bu-shun-chang">
+        <id>https://llhhhh.github.io/post/css-ios-hua-dong-xia-hua-bu-shun-chang</id>
+        <link href="https://llhhhh.github.io/post/css-ios-hua-dong-xia-hua-bu-shun-chang">
         </link>
         <updated>2019-06-04T14:12:23.000Z</updated>
         <content type="html"><![CDATA[<pre><code class="language-javascript">-webkit-overflow-scrolling: touch;
@@ -293,8 +293,8 @@ document.write(`&lt;script type=text/javascript src=/home_stay/static/js/manifes
     </entry>
     <entry>
         <title type="html"><![CDATA[ReactNative 样式表]]></title>
-        <id>https://github.com/llhhhh/llhhhh.github.io/post/reactnative-yang-shi-biao</id>
-        <link href="https://github.com/llhhhh/llhhhh.github.io/post/reactnative-yang-shi-biao">
+        <id>https://llhhhh.github.io/post/reactnative-yang-shi-biao</id>
+        <link href="https://llhhhh.github.io/post/reactnative-yang-shi-biao">
         </link>
         <updated>2019-06-04T14:11:03.000Z</updated>
         <content type="html"><![CDATA[<p>https://www.jianshu.com/p/c59c6890edff</p>
