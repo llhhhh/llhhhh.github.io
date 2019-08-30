@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://llhhhh.github.io</id>
     <title>Gridea</title>
-    <updated>2019-08-30T07:25:50.992Z</updated>
+    <updated>2019-08-30T07:45:15.202Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://llhhhh.github.io"/>
     <link rel="self" href="https://llhhhh.github.io/atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://llhhhh.github.io/images/avatar.png</logo>
     <icon>https://llhhhh.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[git 操作]]></title>
+        <id>https://llhhhh.github.io/post/git</id>
+        <link href="https://llhhhh.github.io/post/git">
+        </link>
+        <updated>2019-08-30T07:37:36.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="直接克隆项目">直接克隆项目</h3>
+<pre><code class="language-javascript">git clone https://git.coding.net/***/***.git
+</code></pre>
+<h3 id="已经创建项目要提交到仓库">已经创建项目要提交到仓库</h3>
+<pre><code class="language-javascript">1. git init
+2. git remote add origin  https://git.coding.net/***/***.git
+3. git status //查看一下状态
+4. git add . //如果是提交全部用点就可以。
+5. git push origin master //如果要上传到其他分支，请先创建分支
+</code></pre>
+<h3 id="回退版本">回退版本</h3>
+<pre><code class="language-javascript">//回退到上个版本
+git reset HEAD^
+//回退到某个版本
+1. git log
+2. git reset --hard commit_id
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[数组与字符串相互转换]]></title>
         <id>https://llhhhh.github.io/post/shu-zu-yu-zi-fu-chuan-xiang-hu-zhuan-huan</id>
@@ -296,16 +321,6 @@ connection.connect();
 &lt;script&gt;
 document.write(`&lt;script type=text/javascript src=/home_stay/static/js/manifest.6e0c0240c920e78b4f21.js?`+Math.random()+`&gt;&lt;\/script&gt;;&lt;script type=text/javascript src=/home_stay/static/js/vendor.5f1b9e59bd38bb0d30c7.js?`+Math.random()+`&gt;&lt;\/script&gt;;&lt;script type=text/javascript src=/home_stay/static/js/app.fa4b495fc2bb6f1e6120.js?`+Math.random()+`&gt;&lt;\/script&gt;;`)
 &lt;/script&gt;
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CSS ios 滑动下滑不顺畅]]></title>
-        <id>https://llhhhh.github.io/post/css-ios-hua-dong-xia-hua-bu-shun-chang</id>
-        <link href="https://llhhhh.github.io/post/css-ios-hua-dong-xia-hua-bu-shun-chang">
-        </link>
-        <updated>2019-06-04T14:12:23.000Z</updated>
-        <content type="html"><![CDATA[<pre><code class="language-javascript">-webkit-overflow-scrolling: touch;
 </code></pre>
 ]]></content>
     </entry>
