@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vue 配置文件 | Gridea</title>
+<title>ReactNative 底部栏被键盘顶起 | Gridea</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://llhhhh.github.io/favicon.ico?v=1567957201912">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,57 +73,28 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Vue 配置文件
+              ReactNative 底部栏被键盘顶起
             </h2>
             <div class="post-info">
               <span>
-                2019-06-14
+                2019-06-04
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://llhhhh.github.io/tag/JC-RC4H56" class="post-tag">
-                  # Vue
+                <a href="https://llhhhh.github.io/tag/ssSJquQNE" class="post-tag">
+                  # ReactNative
                 </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="vueconfigjs">vue.config.js</h3>
-<pre><code>通过配置 externals 实现打生产包时排除某些依赖，使用 cdn 资源代替。
+                <h4 id="androidmanifestxml中配置如下">AndroidManifest.xml中配置如下：</h4>
+<pre><code class="language-javascript">android:windowSoftInputMode=&quot;stateAlwaysHidden|adjustPan&quot;
 </code></pre>
-<pre><code class="language-javascript">externals: {
-	'vue': 'Vue',
-	'vue-router': 'VueRouter',
-	'vuex': 'Vuex',
-	// 'axios': 'axios',
-	// 'lodash': '_',
-	// 'qs': 'Qs',
-	// 'crypto-js': 'CryptoJS',
-	// 'babel-polyfill': 'babel-polyfill',
-	// 'es6-promise': 'es6-promise',
-	// 'vue-lazyload': 'VueLazyload',
-},
-</code></pre>
-<h3 id="postcssconfigjs">postcss.config.js</h3>
-<pre><code>配置px 转rem 和自动补全前缀
-</code></pre>
-<pre><code class="language-javascript">module.exports = {
-  &quot;plugins&quot;: {
-    &quot;autoprefixer&quot;: {},
-    &quot;postcss-import&quot;: {},
-    'autoprefixer': {
-      browsers: ['Android &gt;= 4.0', 'iOS &gt;= 7']
-    },
-    'postcss-pxtorem': {
-      rootValue: 19,
-      propList: ['*']
-    }
-  }
-}
-</code></pre>
+<p>原文：https://blog.csdn.net/wayne214/article/details/83824065</p>
 
               </div>
               <div class="toc-container">
@@ -132,8 +103,11 @@
 <ul>
 <li>
 <ul>
-<li><a href="#vueconfigjs">vue.config.js</a></li>
-<li><a href="#postcssconfigjs">postcss.config.js</a></li>
+<li>
+<ul>
+<li><a href="#androidmanifestxml%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%A6%82%E4%B8%8B">AndroidManifest.xml中配置如下：</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -148,9 +122,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://llhhhh.github.io/post/nodeexpressmysql-xue-xi-ji-lu">
+            <a href="https://llhhhh.github.io/post/reactnative-an-zhuo-yun-xing">
               <h3 class="post-title">
-                Node+Express+MySql学习记录
+                ReactNative 安卓运行
               </h3>
             </a>
           </div>

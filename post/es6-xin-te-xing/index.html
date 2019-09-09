@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vue 配置文件 | Gridea</title>
+<title>ES6新特性 | Gridea</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://llhhhh.github.io/favicon.ico?v=1567957201912">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,56 +73,73 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Vue 配置文件
+              ES6新特性
             </h2>
             <div class="post-info">
               <span>
-                2019-06-14
+                2017-10-09
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://llhhhh.github.io/tag/JC-RC4H56" class="post-tag">
-                  # Vue
-                </a>
-              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="vueconfigjs">vue.config.js</h3>
-<pre><code>通过配置 externals 实现打生产包时排除某些依赖，使用 cdn 资源代替。
-</code></pre>
-<pre><code class="language-javascript">externals: {
-	'vue': 'Vue',
-	'vue-router': 'VueRouter',
-	'vuex': 'Vuex',
-	// 'axios': 'axios',
-	// 'lodash': '_',
-	// 'qs': 'Qs',
-	// 'crypto-js': 'CryptoJS',
-	// 'babel-polyfill': 'babel-polyfill',
-	// 'es6-promise': 'es6-promise',
-	// 'vue-lazyload': 'VueLazyload',
-},
-</code></pre>
-<h3 id="postcssconfigjs">postcss.config.js</h3>
-<pre><code>配置px 转rem 和自动补全前缀
-</code></pre>
-<pre><code class="language-javascript">module.exports = {
-  &quot;plugins&quot;: {
-    &quot;autoprefixer&quot;: {},
-    &quot;postcss-import&quot;: {},
-    'autoprefixer': {
-      browsers: ['Android &gt;= 4.0', 'iOS &gt;= 7']
-    },
-    'postcss-pxtorem': {
-      rootValue: 19,
-      propList: ['*']
-    }
-  }
+                <h3 id="变量声明-const-let">变量声明 const、let</h3>
+<ol>
+<li>let 和 var 的区别</li>
+</ol>
+<pre><code>var a = '全局';
+{
+let a = '局部'
 }
+console.log(a); //全局
+</code></pre>
+<ol start="2">
+<li>const 声明变量会变为常量</li>
+</ol>
+<pre><code>const a = 1;
+a = 2;
+这时候就会报 `Uncaught TypeError: Assignment to constant variable.`，因为被赋值之后就不能修改了。
+</code></pre>
+<ol start="3">
+<li>const 是一个对象</li>
+</ol>
+<pre><code>const a = { x: 0, y: 0 };
+a.x = 2;
+a = { x: 2, y: 2}; // 这个时候就会报` Uncaught TypeError: Assignment to constant variable.`
+</code></pre>
+<h3 id="模板字符串">模板字符串</h3>
+<ol>
+<li>${}</li>
+<li>``</li>
+</ol>
+<pre><code>//以前是这么拼接
+var id = 1;
+'是否删除id为'+ id + '的广告？'
+//现在是这么拼接
+`是否删除id为${id}的广告？`
+</code></pre>
+<h3 id="箭头函数">箭头函数</h3>
+<pre><code>del = (id = 1) =&gt; id;
+console.log(del()) // 1;
+del
+</code></pre>
+<h3 id="export-import-实现模块化">export、import 实现模块化</h3>
+<pre><code>// Tool.js
+let tool = {
+	showUrl(url = 'http://baidu.com') {
+		return url;
+	},
+};
+module.exports = Tool;
+
+//index.js
+import Tool from '@/Tool'
+
+console.log(Tool.showUrl()); //http://baidu.com
 </code></pre>
 
               </div>
@@ -132,8 +149,10 @@
 <ul>
 <li>
 <ul>
-<li><a href="#vueconfigjs">vue.config.js</a></li>
-<li><a href="#postcssconfigjs">postcss.config.js</a></li>
+<li><a href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E-const-let">变量声明 const、let</a></li>
+<li><a href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2">模板字符串</a></li>
+<li><a href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0">箭头函数</a></li>
+<li><a href="#export-import-%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9D%97%E5%8C%96">export、import 实现模块化</a></li>
 </ul>
 </li>
 </ul>
@@ -148,9 +167,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://llhhhh.github.io/post/nodeexpressmysql-xue-xi-ji-lu">
+            <a href="https://llhhhh.github.io/post/css-ios-hua-dong-xia-hua-bu-shun-chang">
               <h3 class="post-title">
-                Node+Express+MySql学习记录
+                CSS ios 滑动下滑不顺畅
               </h3>
             </a>
           </div>

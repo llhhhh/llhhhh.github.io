@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vue 配置文件 | Gridea</title>
+<title>UI框架 | Gridea</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://llhhhh.github.io/favicon.ico?v=1567957201912">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,56 +73,52 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Vue 配置文件
+              UI框架
             </h2>
             <div class="post-info">
               <span>
-                2019-06-14
+                2019-01-08
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://llhhhh.github.io/tag/JC-RC4H56" class="post-tag">
-                  # Vue
-                </a>
-              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="vueconfigjs">vue.config.js</h3>
-<pre><code>通过配置 externals 实现打生产包时排除某些依赖，使用 cdn 资源代替。
+                <h4 id="写写近年来我常用的ui框架">写写近年来我常用的UI框架</h4>
+<ol>
+<li>Ant Design</li>
+</ol>
+<ul>
+<li>15年12月公司要求开始接触前后端分离的开发模式。那时候开始学的 react.</li>
+</ul>
+<pre><code>https://ant.design/docs/react/introduce-cn
 </code></pre>
-<pre><code class="language-javascript">externals: {
-	'vue': 'Vue',
-	'vue-router': 'VueRouter',
-	'vuex': 'Vuex',
-	// 'axios': 'axios',
-	// 'lodash': '_',
-	// 'qs': 'Qs',
-	// 'crypto-js': 'CryptoJS',
-	// 'babel-polyfill': 'babel-polyfill',
-	// 'es6-promise': 'es6-promise',
-	// 'vue-lazyload': 'VueLazyload',
-},
+<ol start="2">
+<li>AUI</li>
+</ol>
+<ul>
+<li>结合apicloud 开发 Web App</li>
+</ul>
+<pre><code>http://aui.dianm.cc/doc/v/2
 </code></pre>
-<h3 id="postcssconfigjs">postcss.config.js</h3>
-<pre><code>配置px 转rem 和自动补全前缀
+<ol start="3">
+<li>Vant</li>
+</ol>
+<ul>
+<li>结合apicloud 开发 Web App / 结合Vue 开发H5</li>
+</ul>
+<pre><code>https://youzan.github.io/vant/#/zh-CN/intro
 </code></pre>
-<pre><code class="language-javascript">module.exports = {
-  &quot;plugins&quot;: {
-    &quot;autoprefixer&quot;: {},
-    &quot;postcss-import&quot;: {},
-    'autoprefixer': {
-      browsers: ['Android &gt;= 4.0', 'iOS &gt;= 7']
-    },
-    'postcss-pxtorem': {
-      rootValue: 19,
-      propList: ['*']
-    }
-  }
-}
+<ol start="4">
+<li>Element-ui</li>
+</ol>
+<ul>
+<li>结合Vue 开发管理后台</li>
+</ul>
+<pre><code>https://element.eleme.cn/#/zh-CN/component/i18n
 </code></pre>
 
               </div>
@@ -132,8 +128,11 @@
 <ul>
 <li>
 <ul>
-<li><a href="#vueconfigjs">vue.config.js</a></li>
-<li><a href="#postcssconfigjs">postcss.config.js</a></li>
+<li>
+<ul>
+<li><a href="#%E5%86%99%E5%86%99%E8%BF%91%E5%B9%B4%E6%9D%A5%E6%88%91%E5%B8%B8%E7%94%A8%E7%9A%84ui%E6%A1%86%E6%9E%B6">写写近年来我常用的UI框架</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -148,9 +147,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://llhhhh.github.io/post/nodeexpressmysql-xue-xi-ji-lu">
+            <a href="https://llhhhh.github.io/post/vue-da-bao-yun-xing-bao-cuo">
               <h3 class="post-title">
-                Node+Express+MySql学习记录
+                Vue 打包运行报错
               </h3>
             </a>
           </div>

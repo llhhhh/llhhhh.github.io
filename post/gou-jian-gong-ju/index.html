@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vue 配置文件 | Gridea</title>
+<title>构建工具 | Gridea</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://llhhhh.github.io/favicon.ico?v=1567957201912">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,73 +73,29 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Vue 配置文件
+              构建工具
             </h2>
             <div class="post-info">
               <span>
-                2019-06-14
+                2019-09-08
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://llhhhh.github.io/tag/JC-RC4H56" class="post-tag">
-                  # Vue
-                </a>
-              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="vueconfigjs">vue.config.js</h3>
-<pre><code>通过配置 externals 实现打生产包时排除某些依赖，使用 cdn 资源代替。
-</code></pre>
-<pre><code class="language-javascript">externals: {
-	'vue': 'Vue',
-	'vue-router': 'VueRouter',
-	'vuex': 'Vuex',
-	// 'axios': 'axios',
-	// 'lodash': '_',
-	// 'qs': 'Qs',
-	// 'crypto-js': 'CryptoJS',
-	// 'babel-polyfill': 'babel-polyfill',
-	// 'es6-promise': 'es6-promise',
-	// 'vue-lazyload': 'VueLazyload',
-},
-</code></pre>
-<h3 id="postcssconfigjs">postcss.config.js</h3>
-<pre><code>配置px 转rem 和自动补全前缀
-</code></pre>
-<pre><code class="language-javascript">module.exports = {
-  &quot;plugins&quot;: {
-    &quot;autoprefixer&quot;: {},
-    &quot;postcss-import&quot;: {},
-    'autoprefixer': {
-      browsers: ['Android &gt;= 4.0', 'iOS &gt;= 7']
-    },
-    'postcss-pxtorem': {
-      rootValue: 19,
-      propList: ['*']
-    }
-  }
-}
-</code></pre>
+                <ol>
+<li>webpack</li>
+<li>glup</li>
+<li>grunt</li>
+</ol>
 
               </div>
               <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#vueconfigjs">vue.config.js</a></li>
-<li><a href="#postcssconfigjs">postcss.config.js</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+                
               </div>
             </div>
           </article>
@@ -148,9 +104,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://llhhhh.github.io/post/nodeexpressmysql-xue-xi-ji-lu">
+            <a href="https://llhhhh.github.io/post/reactnative-duo-qu-dao-da-bao">
               <h3 class="post-title">
-                Node+Express+MySql学习记录
+                ReactNative 多渠道打包
               </h3>
             </a>
           </div>
