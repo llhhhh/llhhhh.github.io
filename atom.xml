@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://llhhhh.github.io</id>
     <title>Gridea</title>
-    <updated>2019-09-09T06:19:24.911Z</updated>
+    <updated>2019-09-09T06:20:18.101Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://llhhhh.github.io"/>
     <link rel="self" href="https://llhhhh.github.io/atom.xml"/>
@@ -10,13 +10,6 @@
     <logo>https://llhhhh.github.io/images/avatar.png</logo>
     <icon>https://llhhhh.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Gridea</rights>
-    <entry>
-        <title type="html"><![CDATA[构建工具]]></title>
-        <id>https://llhhhh.github.io/post/gou-jian-gong-ju</id>
-        <link href="https://llhhhh.github.io/post/gou-jian-gong-ju">
-        </link>
-        <updated>2019-09-08T15:34:57.000Z</updated>
-    </entry>
     <entry>
         <title type="html"><![CDATA[ReactNative 多渠道打包]]></title>
         <id>https://llhhhh.github.io/post/reactnative-duo-qu-dao-da-bao</id>
@@ -79,5 +72,12 @@
         <link href="https://llhhhh.github.io/post/reactnative-an-zhuo-yun-xing">
         </link>
         <updated>2019-06-04T13:39:26.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[小程序开发记录]]></title>
+        <id>https://llhhhh.github.io/post/xiao-cheng-xu-kai-fa-ji-lu</id>
+        <link href="https://llhhhh.github.io/post/xiao-cheng-xu-kai-fa-ji-lu">
+        </link>
+        <updated>2019-02-21T14:29:02.000Z</updated>
     </entry>
 </feed>
