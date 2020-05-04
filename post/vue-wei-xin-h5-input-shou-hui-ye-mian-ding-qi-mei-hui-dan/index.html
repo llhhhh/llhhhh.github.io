@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>UI框架 | Gridea</title>
+<title>VUE 微信H5 input收回页面顶起没回弹 | Gridea</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://llhhhh.github.io/favicon.ico?v=1588577351942">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,70 +73,49 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              UI框架
+              VUE 微信H5 input收回页面顶起没回弹
             </h2>
             <div class="post-info">
               <span>
-                2019-01-08
+                2020-03-04
               </span>
               <span>
                 1 min read
               </span>
               
+                <a href="https://llhhhh.github.io/tag/JC-RC4H56" class="post-tag">
+                  # Vue
+                </a>
+              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h4 id="写写近年来我常用的ui框架">写写近年来我常用的UI框架</h4>
-<ol>
-<li>Ant Design</li>
-</ol>
-<ul>
-<li>15年12月公司要求开始接触前后端分离的开发模式。那时候开始学的 react.</li>
-</ul>
-<pre><code>https://ant.design/docs/react/introduce-cn
+                <h1 id="全局定义">全局定义</h1>
+<pre><code># main.js
+Vue.directive('drop', {  
+  inserted: function (el) {
+    let userUA = navigator.userAgent;
+    if (userUA.indexOf('iPhone') &gt; -1){  
+       el.onblur = function(){              
+            setTimeout(function(){
+              var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop || 0;
+              window.scrollTo(0, Math.max(scrollHeight - 1, 0)); 
+            },100)  
+            console.log(userUA)
+        }
+    }
+  }
+})
 </code></pre>
-<ol start="2">
-<li>AUI</li>
-</ol>
-<ul>
-<li>结合apicloud 开发 Web App</li>
-</ul>
-<pre><code>http://aui.dianm.cc/doc/v/2
-</code></pre>
-<ol start="3">
-<li>Vant</li>
-</ol>
-<ul>
-<li>结合apicloud 开发 Web App / 结合Vue 开发H5</li>
-</ul>
-<pre><code>https://youzan.github.io/vant/#/zh-CN/intro
-</code></pre>
-<ol start="4">
-<li>Element-ui</li>
-</ol>
-<ul>
-<li>结合Vue 开发管理后台</li>
-</ul>
-<pre><code>https://element.eleme.cn/#/zh-CN/component/i18n
+<pre><code># 页面.vue
+&lt;input v-drop /&gt;
 </code></pre>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E5%86%99%E5%86%99%E8%BF%91%E5%B9%B4%E6%9D%A5%E6%88%91%E5%B8%B8%E7%94%A8%E7%9A%84ui%E6%A1%86%E6%9E%B6">写写近年来我常用的UI框架</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#%E5%85%A8%E5%B1%80%E5%AE%9A%E4%B9%89">全局定义</a></li>
 </ul>
 
               </div>
@@ -147,9 +126,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://llhhhh.github.io/post/xiao-cheng-xu-tu-pian-gao-du-zi-gua-ying">
+            <a href="https://llhhhh.github.io/post/reactnative-duo-qu-dao-da-bao">
               <h3 class="post-title">
-                小程序图片高度自适应
+                ReactNative 多渠道打包
               </h3>
             </a>
           </div>
