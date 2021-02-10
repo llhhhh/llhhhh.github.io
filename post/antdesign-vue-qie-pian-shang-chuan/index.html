@@ -1,0 +1,276 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AntDesign + Vue 切片上传 | Gridea</title>
+<meta name="description" content="温故而知新" />
+<link rel="shortcut icon" href="https://llhhhh.github.io/favicon.ico?v=1612941678864">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://llhhhh.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://llhhhh.github.io">
+  <img class="avatar" src="https://llhhhh.github.io/images/avatar.png?v=1612941678864" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              AntDesign + Vue 切片上传
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-02-10
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <pre><code>记 公司开发需要切片上传
+</code></pre>
+<h3 id="indexvue">index.vue</h3>
+<pre><code>        &lt;template&gt;
+            &lt;div class=&quot;page-header-index-wide page-slice-upload&quot;&gt;
+                &lt;a-spin :spinning=&quot;loading&quot;&gt;
+
+                &lt;input class=&quot;hidden&quot; type=&quot;file&quot; @change=&quot;onChange&quot; ref=&quot;fileInput&quot; v-if=&quot;!accept&quot;/&gt;
+                &lt;input class=&quot;hidden&quot; type=&quot;file&quot; @change=&quot;onChange&quot; ref=&quot;fileInput&quot; v-else/&gt;
+
+                &lt;a-button @click=&quot;selectFile&quot; v-if=&quot;!file.name&quot;&gt; &lt;a-icon type=&quot;upload&quot; /&gt;点击上传&lt;/a-button&gt;
+                &lt;a-button v-if=&quot;file.name &amp;&amp; percent != 100&quot;&gt;正在上传&lt;/a-button&gt;
+                &lt;a-button v-if=&quot;file.name &amp;&amp; percent == 100&quot;&gt;上传完成&lt;/a-button&gt;
+
+                &lt;div class=&quot;flex-box flex-h-ce hidden&quot;&gt;
+                    &lt;div&gt;
+                    &lt;a @click=&quot;selectFile&quot;&gt;
+                        {{file.name}}
+                    &lt;/a&gt;
+                    &lt;/div&gt;
+
+                    &lt;div&gt;
+                    &lt;a-popover title=&quot;&quot; placement=&quot;right&quot;&gt;
+                        &lt;template slot=&quot;content&quot;&gt;
+                        &lt;p&gt;点击文件名称更改文件&lt;/p&gt;
+                        &lt;/template&gt;
+                        &lt;a-button type=&quot;primary&quot; class=&quot;margin-l-10&quot;&gt;注&lt;/a-button&gt;
+                    &lt;/a-popover&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;padded-t-20&quot;&gt;
+                    &lt;a-progress v-if=&quot;file.name&quot; style=&quot;width: 50%;&quot; :percent=&quot;percent&quot; status=&quot;active&quot; /&gt;
+                &lt;/div&gt;
+
+                &lt;/a-spin&gt;
+            &lt;/div&gt;
+            &lt;/template&gt;
+</code></pre>
+<h3 id="方法">方法</h3>
+<pre><code>selectFile() {
+      this.$refs.fileInput.click();
+    },
+    async onChange() {
+      let self = this;
+      let file = this.$refs.fileInput.files[0];
+
+      if (!file) return;
+      this.file = file;
+
+      this.loading = true;
+
+      // 这里我们将切片固定成五分，也可以固定大小上传
+      let axiosArray = [];
+      let chunkList = [];
+      let chunkSize = file.size / 5;
+      let current = 0;
+      let i = 0;
+      let currentTime = new Date().getTime();
+      let fileName = currentTime + &quot;_&quot; + file.name;
+
+      while (current &lt; 5) {
+        chunkList.push({
+          chunk: file.slice(current * chunkSize, (current + 1) * chunkSize),
+          fileName: current + &quot;_&quot; + currentTime
+        });
+        current++;
+      }
+      console.log(chunkList,'current,,,,')
+
+      for(var j=0; j&lt;chunkList.length;j++){
+        let formData = new FormData();
+        formData.append(&quot;file&quot;, chunkList[j].chunk);
+        formData.append(&quot;fileName&quot;, chunkList[j].fileName);
+        let data = await self.$store.dispatch({
+          type: 'dictionary/sliceUpload',
+          data: formData
+        });
+
+        this.percent = (100 / current) * (j + 1);
+
+        if(data &amp;&amp; j == (chunkList.length - 1)) {
+          let content = await self.$store.dispatch({
+            type: 'dictionary/sliceUploadFinished',
+            data: {
+              fileName,
+              requestType: 'raw'
+            }
+          });
+          this.loading = false;
+          if(!content) return;
+
+          if(!this.isClose) {
+            this.file = {};
+            this.percent = 0;
+          }
+
+          this.$emit('uploadFile', content, file);
+        }
+      }
+    },
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#indexvue">index.vue</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95">方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://llhhhh.github.io/post/zheng-ze-pi-pei-qu-chu-biao-qian/">
+              <h3 class="post-title">
+                正则匹配去除标签
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://llhhhh.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      console.log('section.offsetHeight', section.offsetHeight);
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

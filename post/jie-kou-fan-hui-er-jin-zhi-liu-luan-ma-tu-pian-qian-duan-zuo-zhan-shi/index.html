@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>小程序开发记录 | Gridea</title>
+<title>接口返回二进制流乱码图片，前端做展示。 | Gridea</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://llhhhh.github.io/favicon.ico?v=1612941678864">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,68 +73,43 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              小程序开发记录
+              接口返回二进制流乱码图片，前端做展示。
             </h2>
             <div class="post-info">
               <span>
-                2019-02-21
+                2021-02-10
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://llhhhh.github.io/tag/OsG-NHMZw/" class="post-tag">
-                  # JavaScript
-                </a>
-              
-                <a href="https://llhhhh.github.io/tag/FvhY2BfNq/" class="post-tag">
-                  # 小程序
-                </a>
-              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <ul>
-<li>小程序需要用到正则的时候 要这么写</li>
-</ul>
-<pre><code>var reg = getRegExp('-', 'gi'); //wxs的正则 
-timestamp = timestamp.replace(reg, '/'); 
+                <h3 id="请求接口时加请求类型">请求接口时加请求类型</h3>
+<pre><code>responseType：'arraybuffer'
+
 </code></pre>
-<ul>
-<li>小程序图片自适应</li>
-</ul>
-<pre><code>* 方法一：
-	.imgs{
-		width: 100%;
-	}
-	使用widthFix 就能自适应
-	&lt;image class=&quot;imgs&quot; style=&quot;width: 100%;&quot;  bindload=&quot;imageLoad&quot; src=&quot;{{item}}&quot; mode=&quot;widthFix&quot; /&gt;
-
-*方法二：
-设置隐藏 使用bindload
-
-imageLoad: function (e) {
-
-	var width = e.detail.width,//图片宽度
-		height = e.detail.height;
-	var ratio  = width / height;
-	var screenWidth = app.globalData.systemInfo.screenWidth;
-
-	height = (screenWidth - 30) / ratio; 
-	//30是左右边距
-
-	this.setData({
-		height,
-	});
-},
-//用一个image 做隐藏
-&lt;image  style=&quot;width: 100%;&quot; class=&quot;hidden&quot; bindload=&quot;imageLoad&quot; src=&quot;{{item}}&quot; mode=&quot;widthFix&quot; /&gt;
+<h3 id="数据返回处理">数据返回处理</h3>
+<pre><code>btoa(new Uint8Array(data).reduce((data, byte) =&gt; data + String.fromCharCode(byte), ''));
 </code></pre>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E6%97%B6%E5%8A%A0%E8%AF%B7%E6%B1%82%E7%B1%BB%E5%9E%8B">请求接口时加请求类型</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E8%BF%94%E5%9B%9E%E5%A4%84%E7%90%86">数据返回处理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
@@ -143,9 +118,9 @@ imageLoad: function (e) {
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://llhhhh.github.io/post/ui-kuang-jia/">
+            <a href="https://llhhhh.github.io/post/img-biao-qian-tu-pian-bu-la-shen/">
               <h3 class="post-title">
-                UI框架
+                img 标签图片不拉伸
               </h3>
             </a>
           </div>

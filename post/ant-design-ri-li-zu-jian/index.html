@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>小程序开发记录 | Gridea</title>
+<title>Ant Design 日历组件 | Gridea</title>
 <meta name="description" content="温故而知新" />
 <link rel="shortcut icon" href="https://llhhhh.github.io/favicon.ico?v=1612941678864">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,68 +73,49 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              小程序开发记录
+              Ant Design 日历组件
             </h2>
             <div class="post-info">
               <span>
-                2019-02-21
+                2021-02-10
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://llhhhh.github.io/tag/OsG-NHMZw/" class="post-tag">
-                  # JavaScript
-                </a>
-              
-                <a href="https://llhhhh.github.io/tag/FvhY2BfNq/" class="post-tag">
-                  # 小程序
-                </a>
-              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <ul>
-<li>小程序需要用到正则的时候 要这么写</li>
-</ul>
-<pre><code>var reg = getRegExp('-', 'gi'); //wxs的正则 
-timestamp = timestamp.replace(reg, '/'); 
+                <p>设置为中文后，组件仍然不显示中文。</p>
+<p>解决办法：</p>
+<h3 id="方法一">方法一：</h3>
+<pre><code>1. 删除 package-lock.json
+2. 删除 node_modules
+3. 重新安装依赖包 
 </code></pre>
-<ul>
-<li>小程序图片自适应</li>
-</ul>
-<pre><code>* 方法一：
-	.imgs{
-		width: 100%;
-	}
-	使用widthFix 就能自适应
-	&lt;image class=&quot;imgs&quot; style=&quot;width: 100%;&quot;  bindload=&quot;imageLoad&quot; src=&quot;{{item}}&quot; mode=&quot;widthFix&quot; /&gt;
-
-*方法二：
-设置隐藏 使用bindload
-
-imageLoad: function (e) {
-
-	var width = e.detail.width,//图片宽度
-		height = e.detail.height;
-	var ratio  = width / height;
-	var screenWidth = app.globalData.systemInfo.screenWidth;
-
-	height = (screenWidth - 30) / ratio; 
-	//30是左右边距
-
-	this.setData({
-		height,
-	});
-},
-//用一个image 做隐藏
-&lt;image  style=&quot;width: 100%;&quot; class=&quot;hidden&quot; bindload=&quot;imageLoad&quot; src=&quot;{{item}}&quot; mode=&quot;widthFix&quot; /&gt;
+<h3 id="方法二">方法二：</h3>
+<pre><code>在main.js中设置
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn')
 </code></pre>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%95%E4%B8%80">方法一：</a></li>
+<li><a href="#%E6%96%B9%E6%B3%95%E4%BA%8C">方法二：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
@@ -143,9 +124,9 @@ imageLoad: function (e) {
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://llhhhh.github.io/post/ui-kuang-jia/">
+            <a href="https://llhhhh.github.io/post/vue-wei-xin-h5-input-shou-hui-ye-mian-ding-qi-mei-hui-dan/">
               <h3 class="post-title">
-                UI框架
+                VUE 微信H5 input收回页面顶起没回弹
               </h3>
             </a>
           </div>
